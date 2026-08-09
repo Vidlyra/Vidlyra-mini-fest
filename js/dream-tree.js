@@ -1,12 +1,27 @@
-/* =========================================
+/* ==================================================
+   VIDLYRA MINI FEST
+   GLOBAL SCRIPT
+================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        console.log(
+            "Vidlyra Mini Fest loaded."
+        );
+
+    }
+);
+/* ==================================================
    VIDLYRA MINI FEST
    DREAM TREE ENGINE
-========================================= */
+================================================== */
 
 
-/* =========================================
+/* ==================================================
    LEAF DATABASE
-========================================= */
+================================================== */
 
 const dreamLeaves = [
 
@@ -15,7 +30,8 @@ const dreamLeaves = [
         rarity: "common",
         type: "MEMORY LEAF",
         xp: 5,
-        message: "Every story begins with one small idea."
+        message:
+            "Every story begins with one small idea."
     },
 
     {
@@ -23,7 +39,8 @@ const dreamLeaves = [
         rarity: "common",
         type: "DREAM LEAF",
         xp: 5,
-        message: "A blank page can become an entire universe."
+        message:
+            "A blank page can become an entire universe."
     },
 
     {
@@ -31,7 +48,8 @@ const dreamLeaves = [
         rarity: "uncommon",
         type: "MEMORY LEAF",
         xp: 10,
-        message: "Every new creation adds another piece to the journey."
+        message:
+            "Every new creation adds another piece to the journey."
     },
 
     {
@@ -39,7 +57,8 @@ const dreamLeaves = [
         rarity: "rare",
         type: "STORY LEAF",
         xp: 20,
-        message: "Some dreams grow quietly before the world can see them."
+        message:
+            "Some dreams grow quietly before the world can see them."
     },
 
     {
@@ -47,7 +66,8 @@ const dreamLeaves = [
         rarity: "rare",
         type: "MEMORY LEAF",
         xp: 20,
-        message: "The worlds you imagined became memories of the journey."
+        message:
+            "The worlds you imagined became memories of the journey."
     },
 
     {
@@ -55,7 +75,8 @@ const dreamLeaves = [
         rarity: "epic",
         type: "DREAM LEAF",
         xp: 50,
-        message: "One idea can become the beginning of something much bigger."
+        message:
+            "One idea can become the beginning of something much bigger."
     },
 
     {
@@ -63,7 +84,8 @@ const dreamLeaves = [
         rarity: "common",
         type: "STORY LEAF",
         xp: 5,
-        message: "Every chapter leaves something behind."
+        message:
+            "Every chapter leaves something behind."
     },
 
     {
@@ -71,7 +93,8 @@ const dreamLeaves = [
         rarity: "uncommon",
         type: "DREAM LEAF",
         xp: 10,
-        message: "Creating is another way of exploring the unknown."
+        message:
+            "Creating is another way of exploring the unknown."
     },
 
     {
@@ -79,7 +102,8 @@ const dreamLeaves = [
         rarity: "rare",
         type: "MEMORY LEAF",
         xp: 20,
-        message: "The journey matters as much as the world created along the way."
+        message:
+            "The journey matters as much as the world created along the way."
     },
 
     {
@@ -87,117 +111,186 @@ const dreamLeaves = [
         rarity: "legendary",
         type: "LEGACY LEAF",
         xp: 100,
-        message: "The dream was never only the destination. It was every step that led there."
+        message:
+            "The dream was never only the destination. It was every step that led there."
     }
 
 ];
 
 
-/* =========================================
-   STORAGE
-========================================= */
+/* ==================================================
+   PLAYER DATA
+================================================== */
 
 let playerData = {
 
-    xp: Number(
-        localStorage.getItem("vidlyraDreamXP")
-    ) || 0,
+    xp:
+        Number(
+            localStorage.getItem(
+                "vidlyraDreamXP"
+            )
+        ) || 0,
 
-    leaves: Number(
-        localStorage.getItem("vidlyraDreamLeaves")
-    ) || 0,
+    leaves:
+        Number(
+            localStorage.getItem(
+                "vidlyraDreamLeaves"
+            )
+        ) || 0,
 
-    collected: JSON.parse(
-        localStorage.getItem("vidlyraCollectedLeaves") || "[]"
-    ),
+    collected:
+        JSON.parse(
+            localStorage.getItem(
+                "vidlyraCollectedLeaves"
+            ) || "[]"
+        ),
 
-    sound: localStorage.getItem(
-        "vidlyraDreamSound"
-    ) !== "false"
+    sound:
+        localStorage.getItem(
+            "vidlyraDreamSound"
+        ) !== "false"
 
 };
 
 
-/* =========================================
+/* ==================================================
    ELEMENTS
-========================================= */
+================================================== */
 
 const introScreen =
-    document.getElementById("introScreen");
+    document.getElementById(
+        "introScreen"
+    );
 
 const dreamWorld =
-    document.getElementById("dreamWorld");
+    document.getElementById(
+        "dreamWorld"
+    );
 
 const enterDreamBtn =
-    document.getElementById("enterDreamBtn");
+    document.getElementById(
+        "enterDreamBtn"
+    );
 
 const takeLeafBtn =
-    document.getElementById("takeLeafBtn");
+    document.getElementById(
+        "takeLeafBtn"
+    );
 
 const anotherLeafBtn =
-    document.getElementById("anotherLeafBtn");
+    document.getElementById(
+        "anotherLeafBtn"
+    );
 
 const closeModalBtn =
-    document.getElementById("closeModalBtn");
+    document.getElementById(
+        "closeModalBtn"
+    );
 
 const leafModal =
-    document.getElementById("leafModal");
+    document.getElementById(
+        "leafModal"
+    );
 
 const fallingLeaf =
-    document.getElementById("fallingLeaf");
+    document.getElementById(
+        "fallingLeaf"
+    );
 
 const leafType =
-    document.getElementById("leafType");
+    document.getElementById(
+        "leafType"
+    );
 
 const leafNumber =
-    document.getElementById("leafNumber");
+    document.getElementById(
+        "leafNumber"
+    );
 
 const leafMessage =
-    document.getElementById("leafMessage");
+    document.getElementById(
+        "leafMessage"
+    );
 
 const xpReward =
-    document.getElementById("xpReward");
+    document.getElementById(
+        "xpReward"
+    );
 
 const xpFill =
-    document.getElementById("xpFill");
+    document.getElementById(
+        "xpFill"
+    );
 
 const xpText =
-    document.getElementById("xpText");
+    document.getElementById(
+        "xpText"
+    );
 
 const leafCount =
-    document.getElementById("leafCount");
+    document.getElementById(
+        "leafCount"
+    );
 
 const levelNumber =
-    document.getElementById("levelNumber");
+    document.getElementById(
+        "levelNumber"
+    );
 
 const soundBtn =
-    document.getElementById("soundBtn");
+    document.getElementById(
+        "soundBtn"
+    );
 
 const dreamMusic =
-    document.getElementById("dreamMusic");
+    document.getElementById(
+        "dreamMusic"
+    );
 
 const leafSound =
-    document.getElementById("leafSound");
+    document.getElementById(
+        "leafSound"
+    );
+
+const secretSound =
+    document.getElementById(
+        "secretSound"
+    );
+
+const finalSound =
+    document.getElementById(
+        "finalSound"
+    );
 
 const secretNotice =
-    document.getElementById("secretNotice");
+    document.getElementById(
+        "secretNotice"
+    );
 
 const secretBtn =
-    document.getElementById("secretBtn");
+    document.getElementById(
+        "secretBtn"
+    );
 
 const finalDream =
-    document.getElementById("finalDream");
+    document.getElementById(
+        "finalDream"
+    );
 
 const returnBtn =
-    document.getElementById("returnBtn");
+    document.getElementById(
+        "returnBtn"
+    );
 
 const particles =
-    document.getElementById("particles");
+    document.getElementById(
+        "particles"
+    );
 
 
-/* =========================================
-   INITIALIZE
-========================================= */
+/* ==================================================
+   START
+================================================== */
 
 updateUI();
 
@@ -206,17 +299,21 @@ createParticles();
 updateSoundButton();
 
 
-/* =========================================
+/* ==================================================
    ENTER DREAM
-========================================= */
+================================================== */
 
 enterDreamBtn.addEventListener(
     "click",
     () => {
 
-        introScreen.classList.add("hidden");
+        introScreen.classList.add(
+            "hidden"
+        );
 
-        dreamWorld.classList.remove("hidden");
+        dreamWorld.classList.remove(
+            "hidden"
+        );
 
         startMusic();
 
@@ -224,9 +321,9 @@ enterDreamBtn.addEventListener(
 );
 
 
-/* =========================================
+/* ==================================================
    TAKE LEAF
-========================================= */
+================================================== */
 
 takeLeafBtn.addEventListener(
     "click",
@@ -238,7 +335,9 @@ anotherLeafBtn.addEventListener(
     "click",
     () => {
 
-        leafModal.classList.add("hidden");
+        leafModal.classList.add(
+            "hidden"
+        );
 
         setTimeout(
             takeLeaf,
@@ -249,9 +348,9 @@ anotherLeafBtn.addEventListener(
 );
 
 
-/* =========================================
+/* ==================================================
    TAKE LEAF FUNCTION
-========================================= */
+================================================== */
 
 function takeLeaf() {
 
@@ -260,41 +359,45 @@ function takeLeaf() {
     const leaf =
         getRandomLeaf();
 
+
     fallingLeaf.classList.remove(
         "animate"
     );
 
+
     void fallingLeaf.offsetWidth;
+
 
     fallingLeaf.classList.add(
         "animate"
     );
 
+
     playLeafSound();
+
 
     setTimeout(
         () => {
 
-            showLeaf(leaf);
+            showLeaf(
+                leaf
+            );
 
-            takeLeafBtn.disabled = false;
+            takeLeafBtn.disabled =
+                false;
 
         },
         1300
     );
+
 }
 
 
-/* =========================================
+/* ==================================================
    RANDOM LEAF
-========================================= */
+================================================== */
 
 function getRandomLeaf() {
-
-    /*
-        Small chance to avoid repeating
-        the same leaf immediately.
-    */
 
     let available =
         dreamLeaves.filter(
@@ -304,62 +407,72 @@ function getRandomLeaf() {
                 )
         );
 
-    /*
-        If every leaf has been collected,
-        allow the collection again.
-    */
 
-    if (available.length === 0) {
+    if (
+        available.length === 0
+    ) {
 
         playerData.collected = [];
 
         saveData();
 
-        available = dreamLeaves;
+        available =
+            dreamLeaves;
 
     }
 
-    /*
-        Weighted rarity system
-    */
 
     const weighted = [];
+
 
     available.forEach(
         leaf => {
 
             let weight = 1;
 
-            if (leaf.rarity === "common") {
-                weight = 60;
+
+            switch (
+                leaf.rarity
+            ) {
+
+                case "common":
+                    weight = 60;
+                    break;
+
+                case "uncommon":
+                    weight = 25;
+                    break;
+
+                case "rare":
+                    weight = 10;
+                    break;
+
+                case "epic":
+                    weight = 4;
+                    break;
+
+                case "legendary":
+                    weight = 1;
+                    break;
+
             }
 
-            if (leaf.rarity === "uncommon") {
-                weight = 25;
-            }
-
-            if (leaf.rarity === "rare") {
-                weight = 10;
-            }
-
-            if (leaf.rarity === "epic") {
-                weight = 4;
-            }
-
-            if (leaf.rarity === "legendary") {
-                weight = 1;
-            }
 
             for (
                 let i = 0;
                 i < weight;
                 i++
             ) {
-                weighted.push(leaf);
+
+                weighted.push(
+                    leaf
+                );
+
             }
 
         }
     );
+
 
     return weighted[
         Math.floor(
@@ -367,18 +480,17 @@ function getRandomLeaf() {
             weighted.length
         )
     ];
+
 }
 
 
-/* =========================================
+/* ==================================================
    SHOW LEAF
-========================================= */
+================================================== */
 
-function showLeaf(leaf) {
-
-    /*
-        Save collected leaf
-    */
+function showLeaf(
+    leaf
+) {
 
     if (
         !playerData.collected.includes(
@@ -395,26 +507,32 @@ function showLeaf(leaf) {
 
     playerData.leaves += 1;
 
-    playerData.xp += leaf.xp;
+    playerData.xp +=
+        leaf.xp;
+
 
     saveData();
 
-    /*
-        Fill UI
-    */
+    updateUI();
+
 
     leafType.textContent =
         leaf.type;
 
+
     leafNumber.textContent =
         "#" +
-        String(leaf.id).padStart(
+        String(
+            leaf.id
+        ).padStart(
             2,
             "0"
         );
 
+
     leafMessage.textContent =
         leaf.message;
+
 
     xpReward.textContent =
         "+" +
@@ -422,30 +540,19 @@ function showLeaf(leaf) {
         " DREAM XP";
 
 
-    updateUI();
-
-
-    /*
-        Show modal
-    */
-
     leafModal.classList.remove(
         "hidden"
     );
 
-
-    /*
-        Check unlock
-    */
 
     checkUnlocks();
 
 }
 
 
-/* =========================================
+/* ==================================================
    CLOSE MODAL
-========================================= */
+================================================== */
 
 closeModalBtn.addEventListener(
     "click",
@@ -459,9 +566,9 @@ closeModalBtn.addEventListener(
 );
 
 
-/* =========================================
-   XP / LEVEL
-========================================= */
+/* ==================================================
+   LEVEL
+================================================== */
 
 function getLevel() {
 
@@ -474,10 +581,16 @@ function getLevel() {
 
 function getLevelXP() {
 
-    return playerData.xp % 100;
+    return (
+        playerData.xp % 100
+    );
 
 }
 
+
+/* ==================================================
+   UPDATE UI
+================================================== */
 
 function updateUI() {
 
@@ -487,19 +600,25 @@ function updateUI() {
     const currentXP =
         getLevelXP();
 
+
     levelNumber.textContent =
-        String(level).padStart(
+        String(
+            level
+        ).padStart(
             2,
             "0"
         );
+
 
     xpText.textContent =
         currentXP +
         " / 100 XP";
 
+
     xpFill.style.width =
         currentXP +
         "%";
+
 
     leafCount.textContent =
         playerData.leaves;
@@ -507,9 +626,9 @@ function updateUI() {
 }
 
 
-/* =========================================
-   SAVE
-========================================= */
+/* ==================================================
+   SAVE DATA
+================================================== */
 
 function saveData() {
 
@@ -518,10 +637,12 @@ function saveData() {
         playerData.xp
     );
 
+
     localStorage.setItem(
         "vidlyraDreamLeaves",
         playerData.leaves
     );
+
 
     localStorage.setItem(
         "vidlyraCollectedLeaves",
@@ -529,6 +650,7 @@ function saveData() {
             playerData.collected
         )
     );
+
 
     localStorage.setItem(
         "vidlyraDreamSound",
@@ -538,18 +660,18 @@ function saveData() {
 }
 
 
-/* =========================================
+/* ==================================================
    UNLOCK SYSTEM
-========================================= */
+================================================== */
 
 function checkUnlocks() {
 
-    /*
-        Level 5
-    */
+    const level =
+        getLevel();
+
 
     if (
-        getLevel() >= 5 &&
+        level >= 5 &&
         !localStorage.getItem(
             "vidlyraSecretUnlocked"
         )
@@ -560,17 +682,17 @@ function checkUnlocks() {
             "true"
         );
 
-        showSecretNotice();
+
+        setTimeout(
+            showSecretNotice,
+            600
+        );
 
     }
 
 
-    /*
-        Level 10
-    */
-
     if (
-        getLevel() >= 10
+        level >= 10
     ) {
 
         setTimeout(
@@ -583,29 +705,36 @@ function checkUnlocks() {
 }
 
 
-/* =========================================
-   SECRET NOTICE
-========================================= */
+/* ==================================================
+   SECRET BRANCH
+================================================== */
 
 function showSecretNotice() {
 
-    setTimeout(
-        () => {
+    if (
+        secretSound &&
+        playerData.sound
+    ) {
 
-            secretNotice.classList.remove(
-                "hidden"
+        secretSound.currentTime = 0;
+
+        secretSound.volume = .45;
+
+        secretSound
+            .play()
+            .catch(
+                () => {}
             );
 
-        },
-        500
+    }
+
+
+    secretNotice.classList.remove(
+        "hidden"
     );
 
 }
 
-
-/* =========================================
-   SECRET BUTTON
-========================================= */
 
 secretBtn.addEventListener(
     "click",
@@ -615,21 +744,33 @@ secretBtn.addEventListener(
             "hidden"
         );
 
-        alert(
-            "SECRET VIDLYRA MEMORY\n\n" +
-            "A forgotten dream has been discovered.\n\n" +
-            "More content will be revealed here."
-        );
-
     }
 );
 
 
-/* =========================================
+/* ==================================================
    FINAL DREAM
-========================================= */
+================================================== */
 
 function showFinalDream() {
+
+    if (
+        finalSound &&
+        playerData.sound
+    ) {
+
+        finalSound.currentTime = 0;
+
+        finalSound.volume = .5;
+
+        finalSound
+            .play()
+            .catch(
+                () => {}
+            );
+
+    }
+
 
     finalDream.classList.remove(
         "hidden"
@@ -637,10 +778,6 @@ function showFinalDream() {
 
 }
 
-
-/* =========================================
-   RETURN
-========================================= */
 
 returnBtn.addEventListener(
     "click",
@@ -654,27 +791,29 @@ returnBtn.addEventListener(
 );
 
 
-/* =========================================
-   SOUND
-========================================= */
+/* ==================================================
+   MUSIC
+================================================== */
 
 function startMusic() {
 
-    if (!playerData.sound) {
+    if (
+        !playerData.sound
+    ) {
+
         return;
+
     }
 
-    dreamMusic.volume = 0.25;
 
-    dreamMusic.play()
+    dreamMusic.volume =
+        .22;
+
+
+    dreamMusic
+        .play()
         .catch(
-            () => {
-                /*
-                    Browser may block autoplay.
-                    User can enable it using
-                    the sound button.
-                */
-            }
+            () => {}
         );
 
 }
@@ -682,21 +821,34 @@ function startMusic() {
 
 function playLeafSound() {
 
-    if (!playerData.sound) {
+    if (
+        !playerData.sound
+    ) {
+
         return;
+
     }
 
-    leafSound.currentTime = 0;
 
-    leafSound.volume = 0.5;
+    leafSound.currentTime =
+        0;
 
-    leafSound.play()
+    leafSound.volume =
+        .5;
+
+
+    leafSound
+        .play()
         .catch(
             () => {}
         );
 
 }
 
+
+/* ==================================================
+   SOUND BUTTON
+================================================== */
 
 soundBtn.addEventListener(
     "click",
@@ -705,15 +857,18 @@ soundBtn.addEventListener(
         playerData.sound =
             !playerData.sound;
 
+
         saveData();
 
         updateSoundButton();
+
 
         if (
             playerData.sound
         ) {
 
-            dreamMusic.play()
+            dreamMusic
+                .play()
                 .catch(
                     () => {}
                 );
@@ -738,11 +893,16 @@ function updateSoundButton() {
 }
 
 
-/* =========================================
+/* ==================================================
    PARTICLES
-========================================= */
+================================================== */
 
 function createParticles() {
+
+    if (!particles) {
+        return;
+    }
+
 
     for (
         let i = 0;
@@ -755,23 +915,35 @@ function createParticles() {
                 "div"
             );
 
+
         particle.className =
-            "particle";
+            "dream-particle";
+
 
         particle.style.left =
-            Math.random() * 100 +
+            Math.random() *
+            100 +
             "%";
 
+
         particle.style.animationDuration =
-            (7 + Math.random() * 10) +
+            (
+                7 +
+                Math.random() * 10
+            ) +
             "s";
 
+
         particle.style.animationDelay =
-            (-Math.random() * 10) +
+            (
+                -Math.random() * 10
+            ) +
             "s";
+
 
         particle.style.opacity =
             Math.random();
+
 
         particles.appendChild(
             particle
