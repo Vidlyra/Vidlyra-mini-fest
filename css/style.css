@@ -1,1 +1,1873 @@
+/* ============================================================
+   VIDLYRA MINI FEST 2026
+   GLOBAL STYLE
+   File: css/style.css
+   ============================================================ */
 
+
+/* ============================================================
+   1. ROOT VARIABLES
+   ============================================================ */
+
+:root {
+
+    --vidlyra-black: #030303;
+
+    --vidlyra-dark: #070707;
+
+    --vidlyra-dark-2: #0d0d0d;
+
+    --vidlyra-orange: #d86b24;
+
+    --vidlyra-orange-light: #f0a15b;
+
+    --vidlyra-orange-dark: #8f3d12;
+
+    --vidlyra-white: #ffffff;
+
+    --vidlyra-gray: #a7a7a7;
+
+    --vidlyra-gray-dark: #666666;
+
+    --vidlyra-border:
+        rgba(255, 255, 255, 0.08);
+
+    --vidlyra-glass:
+        rgba(0, 0, 0, 0.55);
+
+    --vidlyra-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55);
+
+    --vidlyra-radius: 6px;
+
+    --vidlyra-transition:
+        0.3s ease;
+
+}
+
+
+/* ============================================================
+   2. RESET
+   ============================================================ */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 80px;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        var(--vidlyra-black);
+
+    color:
+        var(--vidlyra-white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+
+    overflow-x: hidden;
+
+}
+
+
+body.vidlyra-ready {
+
+    opacity: 1;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+button,
+input,
+textarea,
+select {
+
+    font: inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+ul,
+ol {
+
+    list-style: none;
+
+}
+
+
+/* ============================================================
+   3. PAGE TRANSITION
+   ============================================================ */
+
+body {
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+
+}
+
+
+body.vidlyra-ready {
+
+    opacity: 1;
+
+}
+
+
+/* ============================================================
+   4. GLOBAL SELECTION
+   ============================================================ */
+
+::selection {
+
+    background:
+        var(--vidlyra-orange);
+
+    color:
+        #ffffff;
+
+}
+
+
+/* ============================================================
+   5. SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #030303;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #292929;
+
+    border-radius: 20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--vidlyra-orange);
+
+}
+
+
+/* ============================================================
+   6. GLOBAL CONTAINER
+   ============================================================ */
+
+.vidlyra-container {
+
+    width: min(
+        1200px,
+        calc(100% - 40px)
+    );
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+/* ============================================================
+   7. HEADER
+   ============================================================ */
+
+.fest-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 72px;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(3, 3, 3, 0.35);
+
+    border-bottom:
+        1px solid transparent;
+
+    transition:
+        background var(--vidlyra-transition),
+        border-color var(--vidlyra-transition),
+        box-shadow var(--vidlyra-transition);
+
+}
+
+
+.fest-header.scrolled {
+
+    background:
+        rgba(3, 3, 3, 0.92);
+
+    border-bottom:
+        1px solid
+        var(--vidlyra-border);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.fest-header-inner {
+
+    width: min(
+        1200px,
+        calc(100% - 40px)
+    );
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+/* ============================================================
+   8. LOGO
+   ============================================================ */
+
+.vidlyra-logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    line-height: 1;
+
+}
+
+
+.vidlyra-logo-main {
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+.vidlyra-logo-sub {
+
+    margin-top: 5px;
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* ============================================================
+   9. DESKTOP NAVIGATION
+   ============================================================ */
+
+.fest-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+.fest-nav a {
+
+    position: relative;
+
+    color:
+        #c8c8c8;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        color var(--vidlyra-transition);
+
+}
+
+
+.fest-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background:
+        var(--vidlyra-orange);
+
+    transition:
+        width var(--vidlyra-transition);
+
+}
+
+
+.fest-nav a:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+.fest-nav a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* ============================================================
+   10. MENU BUTTON
+   ============================================================ */
+
+#menuButton {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+    border-radius:
+        var(--vidlyra-radius);
+
+    background:
+        rgba(0, 0, 0, 0.5);
+
+    color:
+        #ffffff;
+
+}
+
+
+/* ============================================================
+   11. MOBILE MENU
+   ============================================================ */
+
+#mobileMenu {
+
+    position: fixed;
+
+    top: 72px;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+
+    z-index: 999;
+
+    background:
+        rgba(3, 3, 3, 0.97);
+
+    border-bottom:
+        1px solid
+        var(--vidlyra-border);
+
+    transform:
+        translateY(-120%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+
+}
+
+
+#mobileMenu.open {
+
+    transform:
+        translateY(0);
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+#mobileMenu a {
+
+    display: block;
+
+    padding: 14px 5px;
+
+    color:
+        #cccccc;
+
+    border-bottom:
+        1px solid
+        var(--vidlyra-border);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ============================================================
+   12. HERO
+   ============================================================ */
+
+.vidlyra-hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        #030303;
+
+}
+
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.55) 45%,
+            rgba(0, 0, 0, 0.85) 100%
+        );
+
+}
+
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.55;
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(
+        1200px,
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+
+    padding-top: 80px;
+
+}
+
+
+.hero-label {
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+}
+
+
+.hero-title {
+
+    max-width: 800px;
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            100px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+}
+
+
+.hero-description {
+
+    max-width: 580px;
+
+    margin-top: 25px;
+
+    color:
+        #bcbcbc;
+
+    font-size:
+        clamp(
+            14px,
+            2vw,
+            17px
+        );
+
+    line-height: 1.8;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+/* ============================================================
+   13. GLOBAL BUTTONS
+   ============================================================ */
+
+.vidlyra-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 45px;
+
+    padding:
+        0 22px;
+
+    border:
+        1px solid
+        var(--vidlyra-orange);
+
+    border-radius:
+        var(--vidlyra-radius);
+
+    background:
+        var(--vidlyra-orange);
+
+    color:
+        #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        transform var(--vidlyra-transition),
+        background var(--vidlyra-transition),
+        box-shadow var(--vidlyra-transition);
+
+}
+
+
+.vidlyra-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        #ed7b2c;
+
+    box-shadow:
+        0 12px 30px
+        rgba(216, 107, 36, 0.25);
+
+}
+
+
+.vidlyra-button.secondary {
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    border-color:
+        rgba(255, 255, 255, 0.2);
+
+}
+
+
+.vidlyra-button.secondary:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-color:
+        var(--vidlyra-orange);
+
+}
+
+
+/* ============================================================
+   14. SECTIONS
+   ============================================================ */
+
+.vidlyra-section {
+
+    position: relative;
+
+    padding:
+        100px 0;
+
+    background:
+        var(--vidlyra-black);
+
+}
+
+
+.vidlyra-section.dark {
+
+    background:
+        var(--vidlyra-dark);
+
+}
+
+
+.section-heading {
+
+    max-width: 750px;
+
+    margin:
+        0 auto 55px;
+
+    text-align: center;
+
+}
+
+
+.section-label {
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+}
+
+
+.section-title {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            55px
+        );
+
+    line-height: 1.1;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-description {
+
+    margin-top: 15px;
+
+    color:
+        var(--vidlyra-gray);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ============================================================
+   15. FEST CARDS
+   ============================================================ */
+
+.fest-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 20px;
+
+}
+
+
+.fest-card {
+
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #070707
+        );
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+    border-radius:
+        var(--vidlyra-radius);
+
+    transition:
+        transform var(--vidlyra-transition),
+        border-color var(--vidlyra-transition),
+        box-shadow var(--vidlyra-transition);
+
+}
+
+
+.fest-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(216, 107, 36, 0.45);
+
+    box-shadow:
+        var(--vidlyra-shadow);
+
+}
+
+
+.fest-card-number {
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.fest-card h3 {
+
+    margin-top: 15px;
+
+    font-size: 22px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.fest-card p {
+
+    margin-top: 12px;
+
+    color:
+        var(--vidlyra-gray);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ============================================================
+   16. FEST CARD IMAGE
+   ============================================================ */
+
+.fest-card-image {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    margin-bottom: 20px;
+
+    border-radius:
+        4px;
+
+}
+
+
+.fest-card-image-wrapper {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.fest-card-image-wrapper img {
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+.fest-card:hover
+.fest-card-image-wrapper img {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* ============================================================
+   17. COUNTDOWN
+   ============================================================ */
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.countdown-item {
+
+    min-width: 90px;
+
+    padding:
+        18px 14px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+}
+
+
+.countdown-item strong {
+
+    display: block;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+}
+
+
+.countdown-item span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ============================================================
+   18. DREAM TREE ENTRY CARD
+   ============================================================ */
+
+.dream-tree-entry {
+
+    position: relative;
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.85)
+        ),
+        url("../assets/dream-tree/images/forest-bg.png")
+        center / cover no-repeat;
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+}
+
+
+.dream-tree-entry-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 30px;
+
+}
+
+
+.dream-tree-entry h2 {
+
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            65px
+        );
+
+    letter-spacing: 5px;
+
+}
+
+
+.dream-tree-entry p {
+
+    max-width: 500px;
+
+    margin:
+        15px auto 0;
+
+    color:
+        #bbbbbb;
+
+}
+
+
+/* ============================================================
+   19. LIBRARY
+   ============================================================ */
+
+.library-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 18px;
+
+}
+
+
+.library-card {
+
+    overflow: hidden;
+
+    background:
+        #0a0a0a;
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+    transition:
+        transform var(--vidlyra-transition),
+        border-color var(--vidlyra-transition);
+
+}
+
+
+.library-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(216, 107, 36, 0.4);
+
+}
+
+
+.library-card img {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+}
+
+
+.library-card-content {
+
+    padding: 18px;
+
+}
+
+
+.library-card-content h3 {
+
+    font-size: 16px;
+
+}
+
+
+.library-card-content p {
+
+    margin-top: 7px;
+
+    color:
+        var(--vidlyra-gray);
+
+    font-size: 12px;
+
+}
+
+
+/* ============================================================
+   20. NEWS
+   ============================================================ */
+
+.news-list {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.news-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+    transition:
+        background var(--vidlyra-transition),
+        border-color var(--vidlyra-transition);
+
+}
+
+
+.news-item:hover {
+
+    background:
+        rgba(216, 107, 36, 0.05);
+
+    border-color:
+        rgba(216, 107, 36, 0.3);
+
+}
+
+
+.news-date {
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+}
+
+
+.news-title {
+
+    flex: 1;
+
+    font-size: 14px;
+
+}
+
+
+/* ============================================================
+   21. FAQ
+   ============================================================ */
+
+.faq-list {
+
+    max-width: 850px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.faq-item {
+
+    border-bottom:
+        1px solid
+        var(--vidlyra-border);
+
+}
+
+
+.faq-question {
+
+    width: 100%;
+
+    padding:
+        20px 5px;
+
+    border: 0;
+
+    background:
+        transparent;
+
+    color:
+        #ffffff;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.faq-answer {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    color:
+        var(--vidlyra-gray);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    transition:
+        max-height 0.4s ease;
+
+}
+
+
+.faq-item.open
+.faq-answer {
+
+    max-height: 300px;
+
+    padding:
+        0 5px 20px;
+
+}
+
+
+/* ============================================================
+   22. FOOTER
+   ============================================================ */
+
+.vidlyra-footer {
+
+    padding:
+        60px 0 30px;
+
+    background:
+        #020202;
+
+    border-top:
+        1px solid
+        var(--vidlyra-border);
+
+}
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 40px;
+
+}
+
+
+.footer-brand {
+
+    max-width: 350px;
+
+}
+
+
+.footer-brand h2 {
+
+    letter-spacing: 5px;
+
+}
+
+
+.footer-brand p {
+
+    margin-top: 15px;
+
+    color:
+        var(--vidlyra-gray);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.footer-column h3 {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--vidlyra-orange-light);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.footer-column a {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        #999999;
+
+    font-size: 12px;
+
+    transition:
+        color var(--vidlyra-transition);
+
+}
+
+
+.footer-column a:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+.footer-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 45px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        var(--vidlyra-border);
+
+    color:
+        #666666;
+
+    font-size: 10px;
+
+}
+
+
+/* ============================================================
+   23. BACK TO TOP
+   ============================================================ */
+
+#backToTop {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 900;
+
+    width: 44px;
+
+    height: 44px;
+
+    border:
+        1px solid
+        var(--vidlyra-border);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 0, 0, 0.8);
+
+    color:
+        #ffffff;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity var(--vidlyra-transition),
+        visibility var(--vidlyra-transition),
+        transform var(--vidlyra-transition);
+
+}
+
+
+#backToTop.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+#backToTop:hover {
+
+    border-color:
+        var(--vidlyra-orange);
+
+    color:
+        var(--vidlyra-orange-light);
+
+}
+
+
+/* ============================================================
+   24. REVEAL ANIMATION
+   ============================================================ */
+
+[data-reveal] {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+[data-reveal].revealed {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ============================================================
+   25. IMAGE ERROR
+   ============================================================ */
+
+.image-error {
+
+    opacity: 0.25;
+
+    filter:
+        grayscale(1);
+
+}
+
+
+/* ============================================================
+   26. NOTIFICATION
+   ============================================================ */
+
+#vidlyraNotification {
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+/* ============================================================
+   27. LIGHT THEME
+   ============================================================ */
+
+body.light-theme {
+
+    background:
+        #f4f4f4;
+
+    color:
+        #111111;
+
+}
+
+
+body.light-theme
+.vidlyra-section {
+
+    background:
+        #f4f4f4;
+
+}
+
+
+body.light-theme
+.vidlyra-section.dark {
+
+    background:
+        #e9e9e9;
+
+}
+
+
+/* ============================================================
+   28. RESPONSIVE TABLET
+   ============================================================ */
+
+@media (
+    max-width: 950px
+) {
+
+    .fest-nav {
+
+        display: none;
+
+    }
+
+
+    #menuButton {
+
+        display: block;
+
+    }
+
+
+    .fest-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+
+    .library-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+}
+
+
+/* ============================================================
+   29. RESPONSIVE MOBILE
+   ============================================================ */
+
+@media (
+    max-width: 650px
+) {
+
+    .vidlyra-container {
+
+        width:
+            calc(100% - 30px);
+
+    }
+
+
+    .fest-header-inner {
+
+        width:
+            calc(100% - 30px);
+
+    }
+
+
+    .hero-content {
+
+        width:
+            calc(100% - 30px);
+
+    }
+
+
+    .vidlyra-section {
+
+        padding:
+            70px 0;
+
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(
+                42px,
+                14vw,
+                70px
+            );
+
+    }
+
+
+    .hero-description {
+
+        font-size: 13px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .vidlyra-button {
+
+        width: 100%;
+
+    }
+
+
+    .fest-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .library-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .news-item {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .countdown-item {
+
+        min-width: 70px;
+
+    }
+
+
+    .countdown-item strong {
+
+        font-size: 23px;
+
+    }
+
+
+    #backToTop {
+
+        right: 15px;
+
+        bottom: 15px;
+
+    }
+
+}
+
+
+/* ============================================================
+   30. REDUCED MOTION
+   ============================================================ */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
