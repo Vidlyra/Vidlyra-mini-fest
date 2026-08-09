@@ -2,34 +2,343 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Vidlyra Mini Fest - Dream Tree"
+    >
 
     <title>Dream Tree | Vidlyra Mini Fest</title>
 
-    <link rel="stylesheet" href="css/dream-tree.css">
+    <!-- Main global CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- Dream Tree CSS -->
+    <link
+        rel="stylesheet"
+        href="css/dream-tree.css"
+    >
 </head>
 
 <body>
 
-    <!-- INTRO -->
-    <section id="introScreen" class="screen intro-screen">
+<!-- ==================================================
+     INTRO SCREEN
+================================================== -->
 
-        <div class="intro-overlay"></div>
+<section
+    id="introScreen"
+    class="dream-intro"
+>
 
-        <div class="intro-content">
+    <div class="intro-dark"></div>
 
-            <div class="small-label">
-                VIDLYRA MINI FEST
-            </div>
+    <div class="intro-content">
 
-            <h1>DREAM TREE</h1>
+        <div class="festival-label">
+            VIDLYRA MINI FEST
+        </div>
+
+        <h1>
+            DREAM TREE
+        </h1>
+
+        <p>
+            Every dream leaves something behind.
+        </p>
+
+        <button
+            id="enterDreamBtn"
+            class="dream-button"
+        >
+            ENTER THE DREAM
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DREAM WORLD
+================================================== -->
+
+<main
+    id="dreamWorld"
+    class="dream-world hidden"
+>
+
+    <!-- Background atmosphere -->
+    <div class="world-glow"></div>
+
+    <div class="moon"></div>
+
+    <div class="mist mist-one"></div>
+    <div class="mist mist-two"></div>
+
+
+    <!-- Floating particles -->
+    <div id="particles"></div>
+
+
+    <!-- ==================================================
+         TOP HEADER
+    ================================================== -->
+
+    <header class="dream-header">
+
+        <div class="vidlyra-brand">
+
+            <span>
+                VIDLYRA
+            </span>
+
+            <small>
+                MINI FEST
+            </small>
+
+        </div>
+
+
+        <button
+            id="soundBtn"
+            class="sound-button"
+            aria-label="Toggle sound"
+        >
+            🔊
+        </button>
+
+    </header>
+
+
+    <!-- ==================================================
+         PLAYER STATUS
+    ================================================== -->
+
+    <aside class="player-status">
+
+        <div class="level-row">
+
+            <span>
+                DREAM LEVEL
+            </span>
+
+            <strong id="levelNumber">
+                01
+            </strong>
+
+        </div>
+
+
+        <div class="xp-bar">
+
+            <div
+                id="xpFill"
+                class="xp-fill"
+            ></div>
+
+        </div>
+
+
+        <div class="xp-text">
+            <span id="xpText">
+                0 / 100 XP
+            </span>
+        </div>
+
+
+        <div class="leaf-counter">
+
+            🍃 LEAVES:
+            <strong id="leafCount">
+                0
+            </strong>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================================================
+         DREAM TREE
+    ================================================== -->
+
+    <div class="tree-container">
+
+        <img
+            src="assets/dream-tree/images/tree-main.png"
+            alt="Vidlyra Dream Tree"
+            class="dream-tree-image"
+        >
+
+    </div>
+
+
+    <!-- ==================================================
+         MAIN INTERFACE
+    ================================================== -->
+
+    <section class="tree-interface">
+
+        <div class="tree-heading">
+
+            <span>
+                A PLACE BETWEEN DREAMS
+            </span>
+
+            <h2>
+                DREAM TREE
+            </h2>
 
             <p>
-                Every dream leaves something behind.
+                Take a leaf. Discover a memory.
             </p>
 
-            <button id="enterDreamBtn" class="main-btn">
-                ENTER THE DREAM
+        </div>
+
+
+        <button
+            id="takeLeafBtn"
+            class="take-leaf-button"
+        >
+
+            <span class="leaf-icon">
+                🍃
+            </span>
+
+            <span>
+                TAKE A LEAF
+            </span>
+
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         FALLING LEAF
+    ================================================== -->
+
+    <div
+        id="fallingLeaf"
+        class="falling-leaf"
+    >
+        🍃
+    </div>
+
+
+    <!-- ==================================================
+         LEAF MESSAGE MODAL
+    ================================================== -->
+
+    <div
+        id="leafModal"
+        class="leaf-modal hidden"
+    >
+
+        <div class="modal-background"></div>
+
+
+        <div class="leaf-card">
+
+            <button
+                id="closeModalBtn"
+                class="close-modal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <div class="large-leaf">
+                🍃
+            </div>
+
+
+            <div
+                id="leafType"
+                class="leaf-type"
+            >
+                MEMORY LEAF
+            </div>
+
+
+            <div
+                id="leafNumber"
+                class="leaf-number"
+            >
+                #01
+            </div>
+
+
+            <p
+                id="leafMessage"
+                class="leaf-message"
+            >
+                Every story begins with one small idea.
+            </p>
+
+
+            <div
+                id="xpReward"
+                class="xp-reward"
+            >
+                +5 DREAM XP
+            </div>
+
+
+            <button
+                id="anotherLeafBtn"
+                class="another-leaf-button"
+            >
+                TAKE ANOTHER LEAF
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         SECRET BRANCH
+    ================================================== -->
+
+    <section
+        id="secretNotice"
+        class="secret-screen hidden"
+    >
+
+        <div class="secret-content">
+
+            <div class="secret-symbol">
+                ✨
+            </div>
+
+            <div class="secret-label">
+                DREAM TREE
+            </div>
+
+            <h2>
+                SECRET BRANCH
+            </h2>
+
+            <p>
+                A forgotten dream has been discovered.
+            </p>
+
+            <button
+                id="secretBtn"
+                class="dream-button"
+            >
+                ENTER
             </button>
 
         </div>
@@ -37,233 +346,116 @@
     </section>
 
 
-    <!-- DREAM TREE WORLD -->
-    <main id="dreamWorld" class="dream-world hidden">
+    <!-- ==================================================
+         FINAL DREAM
+    ================================================== -->
 
-        <div class="sky-glow"></div>
+    <section
+        id="finalDream"
+        class="final-dream hidden"
+    >
 
-        <div class="moon"></div>
+        <div class="final-content">
 
-        <div class="mist mist-one"></div>
-        <div class="mist mist-two"></div>
-
-
-        <!-- PARTICLES -->
-        <div id="particles"></div>
-
-
-        <!-- TREE -->
-        <div class="tree-container">
-
-            <img
-                src="assets/dream-tree/tree-main.png"
-                alt="Vidlyra Dream Tree"
-                class="dream-tree-image"
-                id="dreamTreeImage"
-            >
-
-        </div>
-
-
-        <!-- TOP UI -->
-        <header class="top-ui">
-
-            <div class="brand">
-                <span>VIDLYRA</span>
-                <small>MINI FEST</small>
+            <div class="final-leaf">
+                🍃
             </div>
 
-            <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">
-                🔊
-            </button>
+            <span class="final-label">
+                THE FINAL DREAM
+            </span>
 
-        </header>
+            <h2>
+                Every journey<br>
+                begins as a dream.
+            </h2>
 
+            <div class="final-line"></div>
 
-        <!-- STATUS -->
-        <section class="status-panel">
-
-            <div class="level-title">
-                DREAM LEVEL
-                <strong id="levelNumber">01</strong>
-            </div>
-
-            <div class="xp-bar">
-                <div id="xpFill"></div>
-            </div>
-
-            <div class="xp-text">
-                <span id="xpText">0 / 100 XP</span>
-            </div>
-
-            <div class="leaf-counter">
-                🍃 Leaves:
-                <strong id="leafCount">0</strong>
-            </div>
-
-        </section>
-
-
-        <!-- CENTER CONTENT -->
-        <section class="tree-interface">
-
-            <div class="tree-title">
-
-                <span class="eyebrow">
-                    A PLACE BETWEEN DREAMS
-                </span>
-
-                <h2>DREAM TREE</h2>
-
-                <p>
-                    Take a leaf. Discover a memory.
-                </p>
-
-            </div>
-
-
-            <button id="takeLeafBtn" class="leaf-button">
-
-                <span class="button-icon">🍃</span>
-
-                <span>TAKE A LEAF</span>
-
-            </button>
-
-        </section>
-
-
-        <!-- FALLING LEAF -->
-        <div id="fallingLeaf" class="falling-leaf">
-            🍃
-        </div>
-
-
-        <!-- LEAF MODAL -->
-        <div id="leafModal" class="modal hidden">
-
-            <div class="modal-backdrop"></div>
-
-            <div class="leaf-card">
-
-                <button
-                    id="closeModalBtn"
-                    class="close-btn"
-                    aria-label="Close"
-                >
-                    ×
-                </button>
-
-                <div class="leaf-symbol">
-                    🍃
-                </div>
-
-                <div id="leafType" class="leaf-type">
-                    MEMORY LEAF
-                </div>
-
-                <div id="leafNumber" class="leaf-number">
-                    #01
-                </div>
-
-                <p id="leafMessage" class="leaf-message">
-                    Every story begins with one small idea.
-                </p>
-
-                <div id="xpReward" class="xp-reward">
-                    +5 DREAM XP
-                </div>
-
-                <button id="anotherLeafBtn" class="another-btn">
-                    TAKE ANOTHER LEAF
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SECRET BRANCH -->
-        <div id="secretNotice" class="secret-notice hidden">
-
-            <div class="secret-icon">
-                ✨
-            </div>
-
-            <h3>SECRET BRANCH UNLOCKED</h3>
+            <strong>
+                VIDLYRA
+            </strong>
 
             <p>
-                A forgotten dream is waiting.
+                THE NEXT CHAPTER IS WAITING.
             </p>
 
-            <button id="secretBtn" class="main-btn">
-                ENTER
+            <button
+                id="returnBtn"
+                class="dream-button"
+            >
+                RETURN TO FEST
             </button>
 
         </div>
 
+    </section>
 
-        <!-- FINAL DREAM -->
-        <div id="finalDream" class="final-dream hidden">
-
-            <div class="final-content">
-
-                <div class="final-leaf">
-                    🍃
-                </div>
-
-                <p class="final-small">
-                    THE FINAL DREAM
-                </p>
-
-                <h2>
-                    Every journey<br>
-                    begins as a dream.
-                </h2>
-
-                <div class="final-line"></div>
-
-                <strong>VIDLYRA</strong>
-
-                <span>
-                    THE NEXT CHAPTER IS WAITING.
-                </span>
-
-                <button id="returnBtn" class="main-btn">
-                    RETURN TO FEST
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
+</main>
 
 
-    <!-- AUDIO -->
-    <audio
-        id="dreamMusic"
-        loop
-        preload="auto"
+<!-- ==================================================
+     AUDIO
+================================================== -->
+
+<audio
+    id="dreamMusic"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="assets/dream-tree/audio/dream-theme.mp3"
+        type="audio/mpeg"
     >
-        <source
-            src="assets/dream-tree/audio/dream-theme.mp3"
-            type="audio/mpeg"
-        >
-    </audio>
 
-    <audio
-        id="leafSound"
-        preload="auto"
+</audio>
+
+
+<audio
+    id="leafSound"
+    preload="auto"
+>
+
+    <source
+        src="assets/dream-tree/audio/leaf-pickup.mp3"
+        type="audio/mpeg"
     >
-        <source
-            src="assets/dream-tree/audio/leaf-pickup.mp3"
-            type="audio/mpeg"
-        >
-    </audio>
+
+</audio>
 
 
-    <script src="js/dream-tree.js"></script>
+<audio
+    id="secretSound"
+    preload="auto"
+>
+
+    <source
+        src="assets/dream-tree/audio/secret-unlock.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<audio
+    id="finalSound"
+    preload="auto"
+>
+
+    <source
+        src="assets/dream-tree/audio/final-dream.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<!-- Main JS -->
+<script src="js/script.js"></script>
+
+<!-- Dream Tree JS -->
+<script src="js/dream-tree.js"></script>
 
 </body>
 </html>
