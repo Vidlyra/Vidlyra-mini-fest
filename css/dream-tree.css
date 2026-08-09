@@ -1,124 +1,138 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ==================================================
+   VIDLYRA MINI FEST
+   DREAM TREE
+================================================== */
 
 :root {
-    --black: #050505;
-    --dark: #0b0b0b;
-    --orange: #d96b22;
-    --orange-light: #f19a4b;
-    --white: #ffffff;
-    --muted: #b8b8b8;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    background: var(--black);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
+    --dream-black: #030303;
+    --dream-dark: #090909;
+    --dream-orange: #d86b24;
+    --dream-orange-light: #f0a15b;
+    --dream-white: #ffffff;
+    --dream-gray: #aaaaaa;
 }
 
 
-/* =========================
-   COMMON
-========================= */
+/* ==================================================
+   RESET
+================================================== */
 
-.hidden {
-    display: none !important;
-}
-
-.screen,
-.dream-world {
+.dream-world,
+.dream-intro {
     width: 100%;
     height: 100vh;
 }
 
 
-/* =========================
+/* ==================================================
    INTRO
-========================= */
+================================================== */
 
-.intro-screen {
+.dream-intro {
     position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
+
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.35),
-            rgba(0, 0, 0, 0.85)
+            rgba(0, 0, 0, .25),
+            rgba(0, 0, 0, .9)
         ),
-        url("assets/dream-tree/forest-bg.webp")
-        center / cover no-repeat;
+        url("../assets/dream-tree/images/forest-bg.png")
+        center center / cover no-repeat;
 
-    animation: introZoom 8s ease forwards;
+    animation: introZoom 10s ease forwards;
 }
 
-.intro-overlay {
+
+.intro-dark {
     position: absolute;
+
     inset: 0;
 
     background:
         radial-gradient(
             circle at center,
             transparent 0%,
-            rgba(0,0,0,.45) 55%,
-            rgba(0,0,0,.9) 100%
+            rgba(0, 0, 0, .45) 55%,
+            rgba(0, 0, 0, .9) 100%
         );
 }
 
+
 .intro-content {
     position: relative;
+
     z-index: 2;
 
     text-align: center;
 
-    animation: fadeUp 2s ease forwards;
+    padding: 20px;
+
+    animation: introReveal 1.8s ease forwards;
 }
 
-.small-label {
+
+.festival-label {
+    color: var(--dream-orange-light);
+
+    font-size: 11px;
+
     letter-spacing: 5px;
-    font-size: 12px;
-    color: var(--orange-light);
+
     margin-bottom: 20px;
 }
 
+
 .intro-content h1 {
-    font-size: clamp(48px, 9vw, 110px);
-    letter-spacing: 12px;
+    font-size: clamp(45px, 9vw, 110px);
+
+    letter-spacing: 10px;
+
     font-weight: 700;
 
     text-shadow:
-        0 0 30px rgba(217, 107, 34, .25);
+        0 0 40px rgba(216, 107, 36, .25);
 }
+
 
 .intro-content p {
     margin-top: 20px;
+
     color: #d0d0d0;
-    font-size: 17px;
+
+    font-size: 16px;
+
     letter-spacing: 1px;
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* ==================================================
+   BUTTON
+================================================== */
 
-.main-btn,
-.leaf-button,
-.another-btn {
-    border: 0;
+.dream-button {
+    margin-top: 32px;
+
+    padding: 15px 28px;
+
+    border: 1px solid rgba(216, 107, 36, .7);
+
+    border-radius: 4px;
+
+    background: var(--dream-orange);
+
+    color: #ffffff;
+
     cursor: pointer;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
 
     transition:
         transform .25s ease,
@@ -126,99 +140,90 @@ body {
         background .25s ease;
 }
 
-.main-btn {
-    margin-top: 35px;
 
-    padding: 15px 28px;
-
-    color: white;
-    background: var(--orange);
-
-    font-weight: bold;
-    letter-spacing: 2px;
-
-    border-radius: 4px;
-
-    box-shadow:
-        0 8px 30px rgba(217, 107, 34, .2);
-}
-
-.main-btn:hover {
+.dream-button:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 12px 35px rgba(217, 107, 34, .4);
+        0 10px 35px rgba(216, 107, 36, .35);
 }
 
 
-/* =========================
+/* ==================================================
    WORLD
-========================= */
+================================================== */
 
 .dream-world {
     position: relative;
+
     overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.75)
+            rgba(0, 0, 0, .05),
+            rgba(0, 0, 0, .75)
         ),
-        url("assets/dream-tree/forest-bg.webp")
-        center / cover no-repeat;
+        url("../assets/dream-tree/images/forest-bg.png")
+        center center / cover no-repeat;
 }
 
-.sky-glow {
+
+.world-glow {
     position: absolute;
 
-    width: 60vw;
-    height: 60vw;
-
-    max-width: 700px;
-    max-height: 700px;
+    width: 650px;
+    height: 650px;
 
     left: 50%;
-    top: 35%;
+    top: 40%;
 
     transform: translate(-50%, -50%);
 
-    background: radial-gradient(
-        circle,
-        rgba(217,107,34,.10),
-        transparent 65%
-    );
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216, 107, 36, .12),
+            transparent 68%
+        );
 
     pointer-events: none;
 }
 
 
-/* =========================
+/* ==================================================
    MOON
-========================= */
+================================================== */
 
 .moon {
     position: absolute;
 
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
+
+    top: 8%;
+    right: 12%;
 
     border-radius: 50%;
 
-    top: 9%;
-    right: 12%;
+    background:
+        url("../assets/dream-tree/images/moon.png")
+        center / contain no-repeat;
 
-    background: #e9e3d4;
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(255, 245, 215, .15)
+        );
 
-    box-shadow:
-        0 0 50px rgba(233,227,212,.18);
-
-    opacity: .8;
+    opacity: .9;
 }
 
 
-/* =========================
+/* ==================================================
    MIST
-========================= */
+================================================== */
 
 .mist {
     position: absolute;
@@ -227,366 +232,474 @@ body {
     height: 100px;
 
     left: 10%;
-    bottom: 10%;
 
-    background: rgba(255,255,255,.025);
+    bottom: 5%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .025);
 
     filter: blur(30px);
 
-    animation: mistMove 10s ease-in-out infinite alternate;
+    animation:
+        mistMove 10s ease-in-out infinite alternate;
+
+    pointer-events: none;
 }
 
+
 .mist-two {
-    bottom: 25%;
+    bottom: 20%;
+
     animation-delay: -5s;
 }
 
 
-/* =========================
-   TREE
-========================= */
-
-.tree-container {
-    position: absolute;
-
-    left: 50%;
-    bottom: -5px;
-
-    width: min(65vw, 850px);
-
-    transform: translateX(-50%);
-
-    z-index: 2;
-
-    animation: treeAppear 2s ease forwards;
-}
-
-.dream-tree-image {
-    width: 100%;
-    height: auto;
-
-    display: block;
-
-    filter:
-        drop-shadow(0 0 25px rgba(217,107,34,.08));
-
-    animation: treeFloat 6s ease-in-out infinite;
-}
-
-
-/* =========================
+/* ==================================================
    HEADER
-========================= */
+================================================== */
 
-.top-ui {
+.dream-header {
     position: absolute;
 
     top: 25px;
+
     left: 30px;
     right: 30px;
 
+    z-index: 20;
+
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
 
-    z-index: 10;
+    justify-content: space-between;
 }
 
-.brand {
+
+.vidlyra-brand {
     display: flex;
+
     flex-direction: column;
 
     letter-spacing: 3px;
-    font-weight: bold;
+
+    font-weight: 700;
 }
 
-.brand small {
-    color: var(--orange-light);
-    font-size: 8px;
-    letter-spacing: 3px;
+
+.vidlyra-brand small {
     margin-top: 4px;
+
+    color: var(--dream-orange-light);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
 }
 
-.icon-btn {
+
+.sound-button {
     width: 42px;
     height: 42px;
 
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(0,0,0,.4);
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .15);
+
+    background:
+        rgba(0, 0, 0, .45);
 
     color: white;
-
-    border-radius: 50%;
 
     cursor: pointer;
 }
 
 
-/* =========================
+/* ==================================================
    STATUS
-========================= */
+================================================== */
 
-.status-panel {
+.player-status {
     position: absolute;
 
     top: 85px;
     left: 30px;
 
+    z-index: 20;
+
     width: 220px;
 
     padding: 15px;
 
-    background: rgba(0,0,0,.35);
+    background:
+        rgba(0, 0, 0, .4);
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255, 255, 255, .08);
 
     backdrop-filter: blur(8px);
-
-    z-index: 10;
 }
 
-.level-title {
-    font-size: 10px;
-    letter-spacing: 2px;
+
+.level-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
     color: #aaa;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
 
-.level-title strong {
-    color: var(--orange-light);
+
+.level-row strong {
+    color: var(--dream-orange-light);
+
     font-size: 18px;
-    margin-left: 5px;
 }
+
 
 .xp-bar {
     width: 100%;
+
     height: 5px;
 
     margin-top: 12px;
 
-    background: rgba(255,255,255,.12);
+    background:
+        rgba(255, 255, 255, .1);
+
+    overflow: hidden;
 }
 
-#xpFill {
+
+.xp-fill {
     width: 0%;
+
     height: 100%;
 
-    background: var(--orange);
+    background:
+        var(--dream-orange);
 
-    transition: width .5s ease;
+    transition:
+        width .5s ease;
 }
+
 
 .xp-text {
     margin-top: 7px;
 
+    color: #888;
+
     font-size: 10px;
-    color: #aaa;
 }
+
 
 .leaf-counter {
     margin-top: 12px;
 
+    color: #aaa;
+
     font-size: 11px;
-    color: #bbb;
 }
 
 
-/* =========================
-   CENTER UI
-========================= */
+.leaf-counter strong {
+    color: #fff;
+}
+
+
+/* ==================================================
+   TREE
+================================================== */
+
+.tree-container {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: min(68vw, 900px);
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        treeAppear 1.8s ease forwards;
+}
+
+
+.dream-tree-image {
+    width: 100%;
+
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(216, 107, 36, .08)
+        );
+
+    animation:
+        treeBreath 7s ease-in-out infinite;
+}
+
+
+/* ==================================================
+   TREE INTERFACE
+================================================== */
 
 .tree-interface {
     position: absolute;
 
-    left: 50%;
-    bottom: 40px;
+    z-index: 15;
 
-    transform: translateX(-50%);
+    left: 50%;
+
+    bottom: 35px;
+
+    transform:
+        translateX(-50%);
 
     width: 100%;
 
     text-align: center;
 
-    z-index: 8;
-
     pointer-events: none;
 }
 
-.tree-title {
-    pointer-events: none;
-}
 
-.eyebrow {
+.tree-heading span {
+    color:
+        var(--dream-orange-light);
+
     font-size: 9px;
 
     letter-spacing: 4px;
-
-    color: var(--orange-light);
 }
 
-.tree-title h2 {
+
+.tree-heading h2 {
     margin-top: 8px;
 
-    font-size: clamp(28px, 4vw, 50px);
+    font-size:
+        clamp(28px, 4vw, 50px);
 
-    letter-spacing: 8px;
+    letter-spacing: 7px;
 }
 
-.tree-title p {
-    margin-top: 7px;
 
-    color: #bbb;
+.tree-heading p {
+    margin-top: 8px;
+
+    color: #aaa;
 
     font-size: 13px;
 }
 
-.leaf-button {
-    pointer-events: auto;
 
-    margin-top: 20px;
+.take-leaf-button {
+    pointer-events: auto;
 
     display: inline-flex;
 
     align-items: center;
+
     gap: 10px;
+
+    margin-top: 20px;
 
     padding: 14px 25px;
 
-    background: rgba(0,0,0,.75);
+    border:
+        1px solid
+        rgba(216, 107, 36, .7);
 
-    border: 1px solid rgba(217,107,34,.7);
+    border-radius: 4px;
 
-    color: white;
+    background:
+        rgba(0, 0, 0, .75);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-weight: 700;
 
     letter-spacing: 2px;
 
-    border-radius: 4px;
+    transition:
+        transform .25s ease,
+        background .25s ease;
 }
 
-.leaf-button:hover {
-    background: var(--orange);
 
-    transform: translateY(-3px);
+.take-leaf-button:hover {
+    background:
+        var(--dream-orange);
+
+    transform:
+        translateY(-3px);
 }
 
-.button-icon {
+
+.take-leaf-button:disabled {
+    opacity: .5;
+
+    cursor: wait;
+}
+
+
+.leaf-icon {
     font-size: 18px;
 }
 
 
-/* =========================
+/* ==================================================
    FALLING LEAF
-========================= */
+================================================== */
 
 .falling-leaf {
     position: fixed;
 
-    left: 50%;
-    top: 35%;
+    z-index: 100;
 
-    font-size: 50px;
+    left: 50%;
+    top: 30%;
+
+    font-size: 52px;
 
     opacity: 0;
-
-    z-index: 100;
 
     pointer-events: none;
 }
 
+
 .falling-leaf.animate {
-    animation: leafFall 1.6s ease-in-out forwards;
+    animation:
+        leafFall 1.4s
+        cubic-bezier(.2,.8,.3,1)
+        forwards;
 }
 
 
-/* =========================
+/* ==================================================
    MODAL
-========================= */
+================================================== */
 
-.modal {
+.leaf-modal {
     position: fixed;
+
+    z-index: 200;
 
     inset: 0;
 
     display: flex;
 
-    justify-content: center;
     align-items: center;
 
-    z-index: 200;
+    justify-content: center;
 }
 
-.modal-backdrop {
+
+.modal-background {
     position: absolute;
 
     inset: 0;
 
-    background: rgba(0,0,0,.78);
+    background:
+        rgba(0, 0, 0, .8);
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
 }
+
 
 .leaf-card {
     position: relative;
+
+    z-index: 2;
 
     width: min(90%, 500px);
 
     padding: 45px 35px;
 
+    text-align: center;
+
     background:
         linear-gradient(
             145deg,
-            rgba(35,22,15,.97),
-            rgba(7,7,7,.98)
+            rgba(35, 22, 15, .98),
+            rgba(7, 7, 7, .98)
         );
 
     border:
-        1px solid rgba(217,107,34,.35);
-
-    text-align: center;
-
-    z-index: 2;
-
-    animation: cardAppear .5s ease forwards;
+        1px solid
+        rgba(216, 107, 36, .35);
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.7);
+        0 30px 100px
+        rgba(0, 0, 0, .8);
+
+    animation:
+        cardAppear .5s ease forwards;
 }
 
-.close-btn {
+
+.close-modal {
     position: absolute;
 
+    top: 10px;
     right: 15px;
-    top: 12px;
 
     width: 35px;
     height: 35px;
 
+    border: 0;
+
     background: transparent;
 
     color: #aaa;
-
-    border: 0;
 
     font-size: 28px;
 
     cursor: pointer;
 }
 
-.leaf-symbol {
-    font-size: 50px;
+
+.large-leaf {
+    font-size: 52px;
 
     margin-bottom: 15px;
 
     filter:
-        drop-shadow(0 0 12px rgba(217,107,34,.4));
+        drop-shadow(
+            0 0 15px
+            rgba(216, 107, 36, .4)
+        );
 }
 
-.leaf-type {
-    font-size: 10px;
 
-    color: var(--orange-light);
+.leaf-type {
+    color:
+        var(--dream-orange-light);
+
+    font-size: 10px;
 
     letter-spacing: 4px;
 }
+
 
 .leaf-number {
     margin-top: 8px;
@@ -596,61 +709,65 @@ body {
     font-size: 11px;
 }
 
+
 .leaf-message {
+    max-width: 390px;
+
     margin: 25px auto;
 
-    max-width: 380px;
-
-    color: #eee;
+    color: #eeeeee;
 
     font-size: 19px;
 
     line-height: 1.7;
 }
 
-.xp-reward {
-    color: var(--orange-light);
 
-    font-weight: bold;
+.xp-reward {
+    color:
+        var(--dream-orange-light);
+
+    font-weight: 700;
 
     letter-spacing: 2px;
 }
 
-.another-btn {
+
+.another-leaf-button {
     margin-top: 25px;
 
     padding: 12px 20px;
 
-    background: var(--orange);
+    border: 0;
+
+    border-radius: 3px;
+
+    background:
+        var(--dream-orange);
 
     color: white;
 
-    font-weight: bold;
+    cursor: pointer;
 
-    border-radius: 3px;
-}
-
-.another-btn:hover {
-    transform: translateY(-2px);
+    font-weight: 700;
 }
 
 
-/* =========================
+/* ==================================================
    SECRET
-========================= */
+================================================== */
 
-.secret-notice {
+.secret-screen {
     position: fixed;
+
+    z-index: 300;
 
     inset: 0;
 
-    z-index: 250;
-
     display: flex;
 
-    flex-direction: column;
-
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -658,82 +775,122 @@ body {
     background:
         radial-gradient(
             circle,
-            rgba(217,107,34,.12),
-            rgba(0,0,0,.97) 60%
+            rgba(216, 107, 36, .13),
+            rgba(0, 0, 0, .98) 65%
         );
 
-    animation: fadeIn .8s ease;
+    animation:
+        fadeIn .8s ease;
 }
 
-.secret-icon {
-    font-size: 50px;
 
-    animation: secretPulse 2s infinite;
+.secret-content {
+    padding: 30px;
 }
 
-.secret-notice h3 {
+
+.secret-symbol {
+    font-size: 55px;
+
+    animation:
+        secretPulse 2s infinite;
+}
+
+
+.secret-label {
     margin-top: 20px;
 
-    letter-spacing: 5px;
-}
-
-.secret-notice p {
-    margin-top: 10px;
-
-    color: #aaa;
-}
-
-
-/* =========================
-   FINAL DREAM
-========================= */
-
-.final-dream {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 400;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background: #030303;
-}
-
-.final-content {
-    animation: fadeUp 2s ease forwards;
-}
-
-.final-leaf {
-    font-size: 60px;
-
-    animation: leafFloat 3s infinite;
-}
-
-.final-small {
-    margin-top: 25px;
-
-    color: var(--orange-light);
+    color:
+        var(--dream-orange-light);
 
     font-size: 10px;
 
     letter-spacing: 5px;
 }
 
+
+.secret-content h2 {
+    margin-top: 12px;
+
+    font-size: 40px;
+
+    letter-spacing: 5px;
+}
+
+
+.secret-content p {
+    margin-top: 12px;
+
+    color: #aaa;
+}
+
+
+/* ==================================================
+   FINAL DREAM
+================================================== */
+
+.final-dream {
+    position: fixed;
+
+    z-index: 400;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        #020202;
+}
+
+
+.final-content {
+    padding: 25px;
+
+    animation:
+        introReveal 2s ease forwards;
+}
+
+
+.final-leaf {
+    font-size: 60px;
+
+    animation:
+        finalLeafFloat 3s
+        ease-in-out infinite;
+}
+
+
+.final-label {
+    display: block;
+
+    margin-top: 25px;
+
+    color:
+        var(--dream-orange-light);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+
 .final-content h2 {
     margin-top: 20px;
 
-    font-size: clamp(28px, 5vw, 60px);
+    font-size:
+        clamp(30px, 5vw, 60px);
 
     line-height: 1.2;
 
     font-weight: 400;
 }
+
 
 .final-line {
     width: 70px;
@@ -741,8 +898,10 @@ body {
 
     margin: 30px auto;
 
-    background: var(--orange);
+    background:
+        var(--dream-orange);
 }
+
 
 .final-content strong {
     display: block;
@@ -750,9 +909,8 @@ body {
     letter-spacing: 8px;
 }
 
-.final-content span {
-    display: block;
 
+.final-content p {
     margin-top: 10px;
 
     color: #777;
@@ -763,11 +921,24 @@ body {
 }
 
 
-/* =========================
+/* ==================================================
    PARTICLES
-========================= */
+================================================== */
 
-.particle {
+#particles {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.dream-particle {
     position: absolute;
 
     width: 3px;
@@ -775,17 +946,17 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.55);
+    background:
+        rgba(255, 255, 255, .55);
 
-    animation: particleFloat linear infinite;
-
-    pointer-events: none;
+    animation:
+        particleRise linear infinite;
 }
 
 
-/* =========================
+/* ==================================================
    ANIMATIONS
-========================= */
+================================================== */
 
 @keyframes introZoom {
 
@@ -796,72 +967,91 @@ body {
     to {
         transform: scale(1.05);
     }
+
 }
 
-@keyframes fadeUp {
+
+@keyframes introReveal {
 
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform:
+            translateY(25px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
+
 }
+
 
 @keyframes treeAppear {
 
     from {
         opacity: 0;
+
         transform:
             translateX(-50%)
-            translateY(30px);
+            translateY(40px);
     }
 
     to {
         opacity: 1;
+
         transform:
             translateX(-50%)
             translateY(0);
     }
+
 }
 
-@keyframes treeFloat {
+
+@keyframes treeBreath {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-5px);
+        transform:
+            translateY(-5px);
     }
+
 }
+
 
 @keyframes mistMove {
 
     from {
-        transform: translateX(-20px);
+        transform:
+            translateX(-25px);
     }
 
     to {
-        transform: translateX(20px);
+        transform:
+            translateX(25px);
     }
+
 }
+
 
 @keyframes leafFall {
 
     0% {
         opacity: 0;
+
         transform:
-            translate(-50%, -100px)
+            translate(-50%, -80px)
             rotate(0deg)
             scale(.5);
     }
 
-    20% {
+    15% {
         opacity: 1;
     }
 
@@ -869,24 +1059,34 @@ body {
         opacity: 1;
 
         transform:
-            translate(-50%, 250px)
+            translate(-50%, 260px)
             rotate(420deg)
-            scale(1.2);
+            scale(1.15);
     }
+
 }
+
 
 @keyframes cardAppear {
 
     from {
         opacity: 0;
-        transform: scale(.9) translateY(20px);
+
+        transform:
+            scale(.9)
+            translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
+
 }
+
 
 @keyframes fadeIn {
 
@@ -897,28 +1097,37 @@ body {
     to {
         opacity: 1;
     }
+
 }
+
 
 @keyframes secretPulse {
 
     0%,
     100% {
-        transform: scale(1);
-        opacity: .7;
+        transform:
+            scale(1);
+
+        opacity: .65;
     }
 
     50% {
-        transform: scale(1.15);
+        transform:
+            scale(1.15);
+
         opacity: 1;
     }
+
 }
 
-@keyframes particleFloat {
+
+@keyframes particleRise {
 
     from {
         transform:
             translateY(100vh)
             translateX(0);
+
         opacity: 0;
     }
 
@@ -927,33 +1136,41 @@ body {
     }
 
     85% {
-        opacity: .5;
+        opacity: .4;
     }
 
     to {
         transform:
             translateY(-20vh)
             translateX(80px);
+
         opacity: 0;
     }
+
 }
 
-@keyframes leafFloat {
+
+@keyframes finalLeafFloat {
 
     0%,
     100% {
-        transform: translateY(0) rotate(-3deg);
+        transform:
+            translateY(0)
+            rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-12px) rotate(3deg);
+        transform:
+            translateY(-12px)
+            rotate(3deg);
     }
+
 }
 
 
-/* =========================
+/* ==================================================
    MOBILE
-========================= */
+================================================== */
 
 @media (max-width: 700px) {
 
@@ -961,54 +1178,85 @@ body {
         letter-spacing: 5px;
     }
 
-    .top-ui {
+
+    .dream-header {
+        top: 15px;
+
         left: 15px;
         right: 15px;
-        top: 15px;
     }
 
-    .status-panel {
+
+    .player-status {
         top: 70px;
         left: 15px;
 
-        width: 170px;
+        width: 175px;
     }
+
+
+    .moon {
+        width: 70px;
+        height: 70px;
+
+        top: 9%;
+        right: 8%;
+    }
+
 
     .tree-container {
         width: 115vw;
-        bottom: 60px;
+
+        bottom: 65px;
     }
+
 
     .tree-interface {
         bottom: 18px;
     }
 
-    .tree-title h2 {
-        letter-spacing: 4px;
+
+    .tree-heading span {
+        font-size: 7px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .tree-heading h2 {
         font-size: 25px;
+
+        letter-spacing: 4px;
     }
 
-    .tree-title p {
+
+    .tree-heading p {
         font-size: 11px;
     }
 
-    .leaf-button {
+
+    .take-leaf-button {
         padding: 12px 18px;
+
         font-size: 11px;
     }
 
-    .moon {
-        width: 70px;
-        height: 70px;
-        right: 8%;
-    }
 
     .leaf-card {
-        padding: 35px 22px;
+        width: 92%;
+
+        padding:
+            35px 22px;
     }
+
 
     .leaf-message {
         font-size: 16px;
+    }
+
+
+    .secret-content h2 {
+        font-size: 28px;
     }
 
 }
